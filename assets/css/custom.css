@@ -1,0 +1,32 @@
+/* Custom overrides for avatar image shape, size, centering, and border removal */
+/* Center the avatar within the flex header and enlarge it */
+#header .image.avatar, .image.avatar {
+    width: 12em; /* overall desired width */
+    display: block;
+    margin: 0 auto 1.25em auto; /* center horizontally */
+    align-self: center; /* override header's align-items: flex-end */
+    border: 0; /* ensure no border on the container */
+    position: relative; /* needed for centering oversized child */
+}
+/* Remove anchor default dotted underline/border */
+#header a.image.avatar { border: 0; border-bottom: none; }
+
+/* Make image rectangular (no rounding) and remove any shadow/border */
+#header .image.avatar img, .image.avatar img {
+    width: 225%; /* keep enlarged width */
+    height: auto;
+    border-radius: 0; /* rectangle */
+    display: block;
+    box-shadow: none; /* remove shadow "border" */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* center oversized image */
+}
+
+/* Responsive adjustments if you still want scaling */
+@media screen and (max-width: 980px) {
+    #header .image.avatar, .image.avatar { width: 9em; }
+}
+@media screen and (max-width: 736px) {
+    #header .image.avatar, .image.avatar { width: 7.5em; }
+}
